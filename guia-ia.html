@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia de IA — HACK ACADEMY</title>
+  <meta name="description" content="Converse com o Guia de IA da HACK ACADEMY e tire suas dúvidas sobre os cursos, materiais e a metodologia do Ecossistema HACK BRASIL.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="guia-ia">
+
+  <div id="header-placeholder"></div>
+
+  <main class="bg-slate-50 min-h-[80vh]">
+    <section class="gradient-hero text-white py-14 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <span class="badge badge-yellow mb-3"><i class="fa-solid fa-robot mr-1.5"></i>Novo</span>
+        <h1 class="font-display text-4xl font-extrabold mb-3">Guia de IA — HACK ACADEMY</h1>
+        <p class="text-slate-200 max-w-2xl">Converse com o assistente inteligente treinado com o conteúdo da plataforma: cursos, apostilas, banco de questões e materiais do Ecossistema HACK BRASIL.</p>
+      </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+      <!-- Status de conexão do backend de IA -->
+      <div id="ai-connection-banner" class="bg-amber-50 border border-amber-200 text-amber-800 text-sm rounded-xl p-4 mb-6 flex items-start gap-3">
+        <i class="fa-solid fa-plug-circle-exclamation mt-0.5"></i>
+        <div>
+          <p class="font-semibold mb-0.5">Guia de IA em fase de configuração</p>
+          <p>O motor de respostas (busca inteligente + IA generativa) ainda precisa ser conectado a um backend seguro — por segurança, nenhuma chave de API fica armazenada neste site estático. Enquanto isso, você pode explorar a interface e ver as perguntas sugeridas abaixo.</p>
+        </div>
+      </div>
+
+      <!-- Chat window -->
+      <section class="bg-white rounded-2xl shadow-sm border border-slate-100 flex flex-col overflow-hidden" style="height:60vh;">
+        <header class="px-5 py-4 border-b border-slate-100 flex items-center gap-3 bg-black text-white">
+          <span class="w-10 h-10 rounded-full bg-brand-yellow text-black flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-bolt"></i></span>
+          <div>
+            <p class="font-semibold text-sm">Guia de IA</p>
+            <p class="text-xs text-slate-300" id="ai-status-label"><span class="inline-block w-2 h-2 rounded-full bg-amber-400 mr-1"></span>Aguardando conexão com o backend de IA</p>
+          </div>
+        </header>
+
+        <div id="chat-messages" class="flex-1 overflow-y-auto px-5 py-5 space-y-4"></div>
+
+        <form id="chat-form" class="border-t border-slate-100 p-3 flex items-center gap-2">
+          <input id="chat-input" type="text" autocomplete="off" placeholder="Digite sua dúvida sobre um curso, material ou o Ecossistema HACK BRASIL..." class="flex-1 px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow/60 text-sm">
+          <button type="submit" id="chat-send-btn" class="btn-accent w-11 h-11 rounded-lg flex items-center justify-center shrink-0" aria-label="Enviar mensagem"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </section>
+
+      <!-- Perguntas sugeridas -->
+      <div class="mt-6">
+        <p class="text-sm font-semibold text-slate-700 mb-3"><i class="fa-solid fa-lightbulb text-brand-yellow-dark mr-1.5"></i>Perguntas sugeridas</p>
+        <div id="chat-suggestions" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <!-- Sobre o Guia de IA -->
+      <section class="mt-10 bg-white rounded-2xl shadow-sm p-6">
+        <h2 class="font-display text-lg font-bold text-slate-900 mb-3"><i class="fa-solid fa-circle-info text-brand-yellow-dark mr-2"></i>Como o Guia de IA é treinado</h2>
+        <p class="text-sm text-slate-600 leading-relaxed mb-3">O Guia de IA usa a técnica <strong>RAG (Retrieval-Augmented Generation)</strong>: em vez de "adivinhar", ele busca as informações mais relevantes dentro da base de conhecimento oficial da HACK ACADEMY — cursos, apostilas, materiais complementares e banco de questões — e só então gera a resposta.</p>
+        <ul class="text-sm text-slate-600 leading-relaxed space-y-1.5 list-disc pl-5">
+          <li>A base de conhecimento é atualizada de forma <strong>incremental</strong> pelo time gestor sempre que um novo curso, material ou questão é publicado.</li>
+          <li>Apenas conteúdo <strong>público da plataforma</strong> é usado para treinar a IA — nenhum dado pessoal de alunos, professores ou mensagens privadas é incluído, respeitando a <strong>LGPD</strong>.</li>
+          <li>Todo o histórico de atualizações da base de conhecimento é registrado e pode ser consultado pela equipe gestora.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/common.js"></script>
+  <script src="js/guia-ia.js"></script>
+</body>
+</html>

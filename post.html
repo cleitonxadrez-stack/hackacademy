@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Artigo — HACK ACADEMY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="blog">
+
+  <div id="header-placeholder"></div>
+
+  <main>
+    <div id="post-loading" class="py-24 text-center">
+      <i class="fa-solid fa-spinner fa-spin text-3xl text-brand-yellow-dark"></i>
+    </div>
+
+    <div id="post-not-found" class="hidden py-24 text-center max-w-lg mx-auto px-4">
+      <i class="fa-solid fa-circle-exclamation text-4xl text-slate-300 mb-4"></i>
+      <h1 class="font-display text-2xl font-bold text-slate-800 mb-2">Artigo não encontrado</h1>
+      <a href="blog.html" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold mt-4">Voltar ao Blog</a>
+    </div>
+
+    <article id="post-content" class="hidden">
+      <div class="h-72 sm:h-96 overflow-hidden relative">
+        <img id="post-image" src="" alt="" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+      </div>
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 -mt-20 relative z-10">
+        <div class="bg-white rounded-2xl shadow-xl p-8 sm:p-12">
+          <span id="post-category" class="badge badge-dark mb-4"></span>
+          <h1 id="post-title" class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mb-4"></h1>
+          <div class="flex items-center gap-4 text-sm text-slate-500 border-b border-slate-100 pb-6 mb-6">
+            <span><i class="fa-solid fa-user mr-1.5"></i><span id="post-author"></span></span>
+            <span><i class="fa-solid fa-calendar mr-1.5"></i><span id="post-date"></span></span>
+          </div>
+          <div id="post-body" class="prose text-slate-600 leading-relaxed space-y-4"></div>
+
+          <div class="mt-10 pt-6 border-t border-slate-100 flex justify-between items-center">
+            <a href="blog.html" class="text-brand-yellow-dark font-semibold link-underline inline-flex items-center gap-2"><i class="fa-solid fa-arrow-left text-sm"></i> Voltar ao Blog</a>
+          </div>
+        </div>
+      </div>
+      <div class="h-16"></div>
+    </article>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/common.js"></script>
+  <script src="js/post-detalhe.js"></script>
+</body>
+</html>

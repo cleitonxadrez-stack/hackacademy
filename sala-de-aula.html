@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Sala de Aula — HACK ACADEMY</title>
+  <meta name="description" content="Assista aos slides da aula, acesse o material complementar e faça o Desafio HACK para conquistar seu certificado.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="cursos">
+
+  <div id="header-placeholder"></div>
+
+  <main class="bg-slate-50 min-h-[80vh]">
+
+    <!-- LOADING -->
+    <div id="classroom-loading" class="py-24 text-center">
+      <i class="fa-solid fa-spinner fa-spin text-3xl text-brand-yellow-dark"></i>
+      <p class="text-slate-500 mt-4">Carregando sala de aula...</p>
+    </div>
+
+    <!-- NÃO ENCONTRADO -->
+    <div id="classroom-not-found" class="hidden py-24 text-center max-w-lg mx-auto px-4">
+      <i class="fa-solid fa-circle-exclamation text-4xl text-slate-300 mb-4"></i>
+      <h1 class="font-display text-2xl font-bold text-slate-800 mb-2">Curso não encontrado</h1>
+      <p class="text-slate-500 mb-6">O curso que você procura não existe, foi removido ou ainda não possui conteúdo de aula publicado.</p>
+      <a href="cursos.html" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold">Voltar ao Catálogo</a>
+    </div>
+
+    <div id="classroom-content" class="hidden">
+
+      <!-- CABEÇALHO DO CURSO (igual ao curso.html) -->
+      <section class="gradient-hero text-white py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav class="text-sm text-slate-300 mb-5" aria-label="Breadcrumb">
+            <a href="cursos.html" class="hover:text-white">Cursos</a> <span class="mx-1">/</span>
+            <a id="breadcrumb-course-link" href="#" class="hover:text-white">Curso</a> <span class="mx-1">/</span> <span class="text-white">Sala de Aula</span>
+          </nav>
+          <div class="flex flex-wrap items-start justify-between gap-6">
+            <div>
+              <span id="classroom-category-badge" class="badge badge-yellow mb-3"></span>
+              <h1 id="classroom-title" class="font-display text-2xl sm:text-3xl font-extrabold mb-2"></h1>
+              <div class="flex flex-wrap items-center gap-5 text-sm text-slate-200">
+                <span><i class="fa-solid fa-user mr-1.5"></i><span id="classroom-instructor"></span></span>
+                <span><i class="fa-solid fa-clock mr-1.5"></i><span id="classroom-duration"></span>h</span>
+                <span><i class="fa-solid fa-signal mr-1.5"></i><span id="classroom-level"></span></span>
+              </div>
+            </div>
+            <div id="classroom-status-wrap" class="flex flex-col items-end gap-2">
+              <span id="classroom-status-slides" class="status-pill status-pill-pending"><i class="fa-solid fa-display"></i>Teoria em andamento</span>
+              <span id="classroom-status-quiz" class="status-pill status-pill-pending"><i class="fa-solid fa-gamepad"></i>Desafio pendente</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BANNER DE APROVAÇÃO / CERTIFICADO LIBERADO -->
+      <section id="classroom-approved-banner" class="hidden approved-banner text-white py-5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="w-11 h-11 rounded-full bg-brand-yellow text-black flex items-center justify-center text-lg"><i class="fa-solid fa-trophy"></i></span>
+            <div>
+              <p class="font-semibold">Parabéns, você foi aprovado(a)! 🎉</p>
+              <p class="text-slate-300 text-sm">Seu certificado já está liberado — código <span id="approved-cert-code" class="font-mono text-brand-yellow"></span>.</p>
+            </div>
+          </div>
+          <a href="#certificate-section" class="btn-accent px-5 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap">Ver meu Certificado <i class="fa-solid fa-arrow-down text-xs ml-1"></i></a>
+        </div>
+      </section>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+
+        <!-- FOCO PRINCIPAL: VISUALIZADOR DE SLIDES (clique para passar) -->
+        <section>
+          <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+            <h2 class="font-display text-xl font-bold text-slate-900"><i class="fa-solid fa-display text-brand-yellow-dark mr-2"></i>Aula em Slides</h2>
+            <a id="slides-download-link" href="#" target="_blank" rel="noopener" class="text-sm font-semibold text-brand-yellow-dark link-underline"><i class="fa-solid fa-download mr-1"></i>Abrir em nova aba / baixar PDF</a>
+          </div>
+
+          <div id="slide-viewer-frame" class="slide-viewer-frame">
+            <div id="slide-canvas-wrap" class="slide-canvas-wrap">
+              <canvas id="slide-canvas"></canvas>
+              <div id="slide-loading" class="slide-loading"><i class="fa-solid fa-spinner fa-spin text-2xl text-brand-yellow"></i></div>
+            </div>
+            <button id="slide-prev-btn" class="slide-nav-btn slide-nav-prev" aria-label="Slide anterior" title="Slide anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="slide-next-btn" class="slide-nav-btn slide-nav-next" aria-label="Próximo slide" title="Clique para avançar"><i class="fa-solid fa-chevron-right"></i></button>
+            <div id="slide-counter" class="slide-counter">1 / 1</div>
+          </div>
+
+          <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mt-4">
+            <div id="slide-progress-bar" class="h-full bg-brand-yellow rounded-full transition-all duration-300" style="width:0%"></div>
+          </div>
+
+          <div class="flex items-center justify-between mt-4 flex-wrap gap-3">
+            <p class="text-sm text-slate-500"><i class="fa-solid fa-circle-info mr-1.5"></i>Clique no slide ou use as setas para avançar. Passe todos até o final para concluir 100% da parte teórica.</p>
+            <button id="mark-slides-done-btn" class="btn-primary px-6 py-3 rounded-lg font-semibold whitespace-nowrap" disabled>
+              <i class="fa-solid fa-check mr-1.5"></i>Concluí os slides
+            </button>
+          </div>
+        </section>
+
+        <!-- MATERIAL COMPLEMENTAR: CAPA A4 EM MINIATURA -->
+        <section id="material-section" class="hidden bg-white rounded-2xl p-6 shadow-sm">
+          <h2 class="font-display text-lg font-bold text-slate-900 mb-4"><i class="fa-solid fa-book text-brand-yellow-dark mr-2"></i>Material Complementar</h2>
+          <a id="material-cover-link" href="#" target="_blank" rel="noopener" class="material-a4-cover group">
+            <span class="material-a4-thumb">
+              <span class="a4-pdf-tag">PDF</span>
+              <i class="fa-solid fa-file-lines"></i>
+            </span>
+            <span>
+              <span class="block font-semibold text-slate-900 group-hover:text-brand-yellow-dark transition-colors">Apostila de leitura complementar</span>
+              <span class="block text-sm text-slate-500">Textos de apoio sobre protagonismo, mentoria, criatividade e inovação. Formato A4 · Clique para abrir o PDF completo.</span>
+            </span>
+          </a>
+        </section>
+
+        <!-- DESAFIO HACK EMBUTIDO -->
+        <section id="quiz-embed-section" class="hidden">
+          <h2 class="font-display text-xl font-bold text-slate-900 mb-4"><i class="fa-solid fa-gamepad text-brand-yellow-dark mr-2"></i>Desafio HACK — Simulado</h2>
+
+          <div id="quiz-lock-wrap" class="relative">
+            <div id="quiz-lock-overlay" class="classroom-lock-overlay">
+              <i class="fa-solid fa-lock text-3xl text-slate-400 mb-3"></i>
+              <p class="font-semibold text-slate-700 mb-1">Conclua os slides para liberar o Desafio HACK</p>
+              <p class="text-sm text-slate-500">Passe a aula até o final e clique em "Concluí os slides" acima.</p>
+            </div>
+
+            <div id="quiz-inner" class="classroom-locked">
+              <!-- BARRA DE PROGRESSO -->
+              <div id="quiz-progress-section" class="bg-white rounded-t-2xl p-5 border-b border-slate-100">
+                <div class="flex items-center justify-between text-sm text-slate-500 mb-2">
+                  <span id="quiz-progress-label">Desafio 1 de 10</span>
+                  <span id="quiz-score-label"><i class="fa-solid fa-star text-brand-yellow-dark mr-1"></i>0 acertos</span>
+                </div>
+                <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div id="quiz-progress-bar" class="h-full bg-brand-yellow rounded-full transition-all duration-300" style="width:0%"></div>
+                </div>
+              </div>
+
+              <!-- QUESTÃO -->
+              <div id="quiz-question-section" class="bg-white rounded-b-2xl shadow-sm p-6 sm:p-10">
+                <span id="quiz-scenario-badge" class="badge badge-dark mb-4"><i class="fa-solid fa-map-pin mr-1.5"></i> Desafio HACK 01</span>
+                <h3 id="quiz-scenario-title" class="font-display text-lg sm:text-xl font-bold text-slate-900 mb-3"></h3>
+                <div id="quiz-scenario-text" class="text-slate-600 leading-relaxed mb-6"></div>
+                <p id="quiz-question-text" class="font-semibold text-slate-900 mb-5"></p>
+
+                <div id="quiz-options" class="space-y-3"></div>
+
+                <div id="quiz-feedback" class="hidden mt-6 p-5 rounded-xl">
+                  <div id="quiz-feedback-header" class="flex items-center gap-2 font-semibold mb-2">
+                    <i id="quiz-feedback-icon" class="fa-solid"></i>
+                    <span id="quiz-feedback-title"></span>
+                  </div>
+                  <div id="quiz-feedback-orientation" class="text-sm leading-relaxed"></div>
+                </div>
+
+                <div class="flex justify-end mt-8">
+                  <button id="quiz-next-btn" class="hidden btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold">
+                    Próximo desafio <i class="fa-solid fa-arrow-right text-sm"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- RESULTADO -->
+              <div id="quiz-result-section" class="hidden bg-white rounded-2xl shadow-sm p-8 sm:p-12 text-center mt-4">
+                <div id="quiz-result-icon" class="w-20 h-20 rounded-full bg-brand-yellow text-black flex items-center justify-center text-3xl mx-auto mb-6">
+                  <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3 class="font-display text-2xl font-bold text-slate-900 mb-2">Desafio concluído!</h3>
+                <p id="quiz-result-summary" class="text-slate-600 mb-8"></p>
+
+                <div class="grid grid-cols-2 gap-4 mb-8 max-w-sm mx-auto">
+                  <div class="bg-slate-50 rounded-xl p-5">
+                    <p class="text-3xl font-bold text-brand-yellow-dark" id="quiz-result-score">0</p>
+                    <p class="text-xs text-slate-500 uppercase tracking-wide mt-1">Acertos</p>
+                  </div>
+                  <div class="bg-slate-50 rounded-xl p-5">
+                    <p class="text-3xl font-bold text-slate-900" id="quiz-result-percentage">0%</p>
+                    <p class="text-xs text-slate-500 uppercase tracking-wide mt-1">Aproveitamento</p>
+                  </div>
+                </div>
+
+                <div id="quiz-result-approved" class="hidden mb-8 inline-flex flex-col items-center">
+                  <span class="status-pill status-pill-done text-base px-5 py-2 mb-2"><i class="fa-solid fa-circle-check"></i>Aprovado — certificado liberado!</span>
+                </div>
+                <div id="quiz-result-retry" class="hidden mb-8">
+                  <span class="status-pill status-pill-pending text-base px-5 py-2"><i class="fa-solid fa-rotate-right"></i>Acerte 7 ou mais de 10 para ser aprovado(a)</span>
+                </div>
+
+                <div class="flex flex-wrap gap-3 justify-center">
+                  <button id="quiz-restart-btn" class="btn-outline-dark inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold border border-slate-200 text-slate-700 hover:bg-slate-50">
+                    <i class="fa-solid fa-rotate-right text-sm"></i> Refazer desafio
+                  </button>
+                  <a id="quiz-result-cert-link" href="#certificate-section" class="hidden btn-accent inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold">
+                    Ver Certificado <i class="fa-solid fa-arrow-down text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CERTIFICADO -->
+        <section id="certificate-section" class="hidden">
+          <h2 class="font-display text-xl font-bold text-slate-900 mb-4"><i class="fa-solid fa-certificate text-brand-yellow-dark mr-2"></i>Seu Certificado</h2>
+          <div id="certificate-wrap"></div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/common.js"></script>
+  <script src="js/certificado.js"></script>
+  <script src="js/sala-de-aula.js"></script>
+</body>
+</html>

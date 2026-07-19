@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — HACK ACADEMY</title>
+  <meta name="description" content="Artigos sobre Inteligência Artificial, Tecnologia, Educação, Empreendedorismo, Inovação e Pesquisas da HACK ACADEMY.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="blog">
+
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="gradient-hero text-white py-14">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="badge badge-yellow mb-4"><i class="fa-solid fa-newspaper mr-1.5"></i> Blog</span>
+        <h1 class="font-display text-4xl font-extrabold mb-3">Conteúdo que inspira e transforma</h1>
+        <p class="text-slate-200 max-w-2xl mx-auto mb-8">Artigos sobre IA, tecnologia, educação, empreendedorismo e inovação.</p>
+        <img src="images/hack-blog-criacao-conteudo.png" alt="Especialista HACK ACADEMY produzindo conteúdo sobre inteligência artificial e inovação" class="rounded-2xl shadow-xl w-full max-w-3xl mx-auto h-56 object-cover ring-2 ring-brand-yellow/40">
+      </div>
+    </section>
+
+    <section class="py-8 bg-white border-b border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-2" id="blog-filter-tabs">
+        <button data-filter="Todos" class="filter-btn active px-4 py-2 rounded-full text-sm font-medium border border-slate-200">Todos</button>
+        <button data-filter="Inteligência Artificial" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-slate-200">IA</button>
+        <button data-filter="Tecnologia" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-slate-200">Tecnologia</button>
+        <button data-filter="Educação" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-slate-200">Educação</button>
+        <button data-filter="Empreendedorismo" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-slate-200">Empreendedorismo</button>
+        <button data-filter="Inovação" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-slate-200">Inovação</button>
+      </div>
+    </section>
+
+    <section class="py-14 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="blog-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div class="skeleton rounded-2xl h-80"></div>
+          <div class="skeleton rounded-2xl h-80"></div>
+          <div class="skeleton rounded-2xl h-80"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/common.js"></script>
+  <script src="js/blog.js"></script>
+
+  <style>
+    .filter-btn{ color:#475569; background:#fff; transition: all .2s ease; }
+    .filter-btn.active, .filter-btn:hover{ background: var(--ha-black); color: var(--ha-yellow); border-color: var(--ha-black); }
+  </style>
+</body>
+</html>

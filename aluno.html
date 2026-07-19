@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Aluno — HACK ACADEMY</title>
+  <meta name="description" content="Acompanhe seus cursos em andamento, cursos concluídos, certificados e histórico de aprendizagem.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="aluno">
+
+  <div id="header-placeholder"></div>
+
+  <main class="bg-slate-50 min-h-[80vh]">
+    <!-- WELCOME BANNER -->
+    <section class="gradient-hero text-white py-12 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-8 items-center relative">
+        <div class="lg:col-span-2 flex flex-wrap items-center justify-between gap-6">
+          <div>
+            <p class="text-slate-200 text-sm mb-1">Bem-vindo(a) de volta,</p>
+            <h1 id="student-name" class="font-display text-3xl font-bold">Aluno(a)</h1>
+          </div>
+          <div class="flex gap-6">
+            <div class="text-center">
+              <p class="text-2xl font-bold" id="stat-in-progress">0</p>
+              <p class="text-xs text-slate-200">Em andamento</p>
+            </div>
+            <div class="text-center">
+              <p class="text-2xl font-bold" id="stat-completed">0</p>
+              <p class="text-xs text-slate-200">Concluídos</p>
+            </div>
+            <div class="text-center">
+              <p class="text-2xl font-bold" id="stat-certificates">0</p>
+              <p class="text-xs text-slate-200">Certificados</p>
+            </div>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img src="images/hack-aluno-home-office.png" alt="Aluno da HACK ACADEMY assistindo aula online em casa" class="rounded-2xl shadow-xl w-full h-40 object-cover ring-2 ring-brand-yellow/40">
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <!-- CURSOS EM ANDAMENTO -->
+        <section>
+          <h2 class="font-display text-xl font-bold text-slate-900 mb-5"><i class="fa-solid fa-play text-brand-yellow-dark mr-2"></i>Cursos em andamento</h2>
+          <div id="in-progress-list" class="space-y-4"></div>
+        </section>
+
+        <!-- CURSOS CONCLUÍDOS -->
+        <section>
+          <h2 class="font-display text-xl font-bold text-slate-900 mb-5"><i class="fa-solid fa-circle-check text-brand-yellow-dark mr-2"></i>Cursos concluídos</h2>
+          <div id="completed-list" class="space-y-4"></div>
+        </section>
+      </div>
+
+      <aside class="space-y-6">
+        <!-- HISTÓRICO -->
+        <div class="bg-white rounded-2xl shadow-sm p-6">
+          <h3 class="font-semibold text-slate-900 mb-4"><i class="fa-solid fa-clock-rotate-left text-brand-yellow-dark mr-2"></i>Histórico</h3>
+          <ul id="history-list" class="space-y-3 text-sm text-slate-600"></ul>
+        </div>
+
+        <!-- CERTIFICADOS -->
+        <div class="bg-white rounded-2xl shadow-sm p-6">
+          <h3 class="font-semibold text-slate-900 mb-4"><i class="fa-solid fa-certificate text-brand-yellow-dark mr-2"></i>Meus Certificados</h3>
+          <a href="certificados.html" class="text-brand-yellow-dark text-sm font-semibold link-underline">Ver todos os certificados →</a>
+        </div>
+
+        <!-- EXPLORAR MAIS -->
+        <div class="bg-black rounded-2xl p-6 text-white border-2 border-brand-yellow">
+          <h3 class="font-semibold mb-2 text-brand-yellow">Continue evoluindo</h3>
+          <p class="text-white/80 text-sm mb-4">Explore novos cursos e trilhas de aprendizagem.</p>
+          <a href="cursos.html" class="bg-brand-yellow text-black font-semibold text-sm px-4 py-2.5 rounded-lg inline-block">Explorar Cursos</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/common.js"></script>
+  <script src="js/aluno.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastre-se — HACK ACADEMY</title>
+  <meta name="description" content="Solicite seu cadastro na HACK ACADEMY como aluno ou professor. Sua solicitação será avaliada pela equipe gestora.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="cadastro">
+
+  <div id="header-placeholder"></div>
+
+  <main class="min-h-[80vh] flex items-center justify-center bg-slate-50 py-16">
+    <div class="max-w-4xl w-full mx-4 grid lg:grid-cols-2 bg-white rounded-2xl shadow-xl overflow-hidden">
+      <div class="hidden lg:flex gradient-hero p-10 text-white flex-col justify-center">
+        <span class="w-14 h-14 logo-icon rounded-2xl text-2xl mb-4"><i class="fa-solid fa-user-plus"></i></span>
+        <h2 class="font-display text-2xl font-bold mb-3">Faça parte da HACK ACADEMY</h2>
+        <p class="text-slate-200 text-sm leading-relaxed mb-6">Preencha seus dados abaixo para solicitar seu acesso como Aluno ou Professor. Nossa equipe gestora vai analisar e liberar seu acesso em breve.</p>
+        <img src="images/hack-alunos-laptop-mentor.png" alt="Alunos da HACK ACADEMY estudando com laptop e mentoria" class="rounded-xl shadow-lg w-full h-40 object-cover ring-2 ring-brand-yellow/40">
+      </div>
+
+      <div class="p-8 sm:p-10">
+        <h1 class="font-display text-2xl font-bold text-slate-900 mb-1">Solicitar cadastro</h1>
+        <p class="text-slate-500 text-sm mb-6">Sua solicitação será avaliada por um gestor antes da liberação do acesso.</p>
+
+        <div id="registration-success" class="hidden text-center py-10">
+          <i class="fa-solid fa-circle-check text-5xl text-emerald-500 mb-4"></i>
+          <h2 class="font-display text-xl font-bold text-slate-900 mb-2">Solicitação enviada!</h2>
+          <p class="text-slate-500 text-sm mb-6">Recebemos seu pedido de cadastro. Nossa equipe vai avaliar e você será avisado quando o acesso estiver liberado.</p>
+          <a href="login.html" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold">Ir para o login</a>
+        </div>
+
+        <form id="registration-form" class="space-y-4">
+          <div class="flex gap-2 mb-2 bg-slate-100 rounded-lg p-1">
+            <button type="button" id="reg-tab-aluno" class="reg-tab-btn active flex-1 py-2.5 rounded-md text-sm font-semibold">Quero ser Aluno</button>
+            <button type="button" id="reg-tab-professor" class="reg-tab-btn flex-1 py-2.5 rounded-md text-sm font-semibold">Quero ser Professor</button>
+          </div>
+
+          <div>
+            <label for="reg-name" class="block text-sm font-medium text-slate-700 mb-1.5">Nome completo</label>
+            <input id="reg-name" type="text" required placeholder="Digite seu nome completo" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow/60 text-sm">
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="reg-email" class="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
+              <input id="reg-email" type="email" required placeholder="seu@email.com" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow/60 text-sm">
+            </div>
+            <div>
+              <label for="reg-phone" class="block text-sm font-medium text-slate-700 mb-1.5">Telefone/WhatsApp</label>
+              <input id="reg-phone" type="tel" placeholder="(00) 00000-0000" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow/60 text-sm">
+            </div>
+          </div>
+          <div>
+            <label for="reg-course" class="block text-sm font-medium text-slate-700 mb-1.5">Curso ou trilha de interesse (opcional)</label>
+            <input id="reg-course" type="text" placeholder="Ex: Explorador HACK SCHOOL®" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow/60 text-sm">
+          </div>
+          <div>
+            <label for="reg-message" class="block text-sm font-medium text-slate-700 mb-1.5">Mensagem (opcional)</label>
+            <textarea id="reg-message" rows="3" placeholder="Conte um pouco sobre você ou sua instituição" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow/60 text-sm resize-none"></textarea>
+          </div>
+          <button type="submit" id="registration-submit-btn" class="btn-primary w-full py-3.5 rounded-lg font-semibold">Enviar solicitação de cadastro</button>
+        </form>
+
+        <p class="text-center text-sm text-slate-500 mt-6">Já tem um acesso liberado? <a href="login.html" class="text-brand-yellow-dark font-semibold">Entrar</a></p>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/common.js"></script>
+  <script src="js/cadastro.js"></script>
+
+  <style>
+    .reg-tab-btn{ color:#64748B; transition: all .2s ease; }
+    .reg-tab-btn.active{ background: var(--ha-yellow); color: var(--ha-black); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  </style>
+</body>
+</html>

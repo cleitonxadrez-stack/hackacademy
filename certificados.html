@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificados — HACK ACADEMY</title>
+  <meta name="description" content="Baixe seus certificados digitais da HACK ACADEMY com QR Code e código de validação.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="certificados">
+
+  <div id="header-placeholder"></div>
+
+  <main class="bg-slate-50 min-h-[80vh]">
+    <section class="gradient-hero text-white py-14">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="badge badge-yellow mb-4"><i class="fa-solid fa-certificate mr-1.5"></i> Certificados</span>
+        <h1 class="font-display text-4xl font-extrabold mb-3">Seus Certificados Digitais</h1>
+        <p class="text-slate-200 max-w-2xl mx-auto mb-8">Comprove suas competências com certificados validados e verificáveis.</p>
+        <img src="images/hack-certificados-cerimonia.png" alt="Entrega de certificado em cerimônia de reconhecimento HACK ACADEMY" class="rounded-2xl shadow-xl w-full max-w-3xl mx-auto h-56 object-cover ring-2 ring-brand-yellow/40">
+      </div>
+    </section>
+
+    <section class="py-14">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="login-required" class="hidden text-center bg-white rounded-2xl p-12 shadow-sm">
+          <i class="fa-solid fa-lock text-4xl text-slate-300 mb-4"></i>
+          <h2 class="font-semibold text-xl text-slate-800 mb-2">Entre para ver seus certificados</h2>
+          <p class="text-slate-500 mb-6">Você precisa estar logado para visualizar e baixar seus certificados.</p>
+          <a href="login.html?redirect=certificados.html" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold">Entrar</a>
+        </div>
+
+        <div id="certificates-list" class="space-y-8"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/common.js"></script>
+  <script src="js/certificado.js"></script>
+  <script src="js/certificados.js"></script>
+</body>
+</html>

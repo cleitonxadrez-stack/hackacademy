@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecionando... — HACK ACADEMY</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // O Desafio HACK agora faz parte da Sala de Aula unificada do curso
+    // (slides + material complementar + desafio + certificado em uma página só).
+    // Mantemos este redirecionamento para preservar links antigos que usavam ?curso=.
+    var params = new URLSearchParams(window.location.search);
+    var courseId = params.get('curso') || params.get('id');
+    window.location.replace(courseId ? ('sala-de-aula.html?id=' + encodeURIComponent(courseId)) : 'cursos.html');
+  </script>
+</head>
+<body>
+  <p>Redirecionando para a Sala de Aula... Se não for redirecionado automaticamente, <a id="fallback-link" href="cursos.html">clique aqui</a>.</p>
+  <script>
+    document.getElementById('fallback-link').href = courseId ? ('sala-de-aula.html?id=' + encodeURIComponent(courseId)) : 'cursos.html';
+  </script>
+</body>
+</html>

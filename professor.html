@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Professor — HACK ACADEMY</title>
+  <meta name="description" content="Painel do professor: publique cursos, edite aulas, acompanhe alunos e emita certificados.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="professor">
+
+  <div id="header-placeholder"></div>
+
+  <main class="bg-slate-50 min-h-[80vh]">
+    <section class="gradient-hero text-white py-12 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-8 items-center relative">
+        <div class="lg:col-span-2 flex flex-wrap items-center justify-between gap-6">
+          <div>
+            <p class="text-slate-200 text-sm mb-1">Painel do Professor</p>
+            <h1 id="teacher-name" class="font-display text-3xl font-bold">Professor(a)</h1>
+          </div>
+          <button id="new-course-btn" class="btn-accent px-6 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
+            <i class="fa-solid fa-plus"></i> Publicar novo curso
+          </button>
+        </div>
+        <div class="hidden lg:block">
+          <img src="images/hack-classroom-robotica.png" alt="Professor da HACK ACADEMY orientando estudantes em sala de aula com robótica e tecnologia" class="rounded-2xl shadow-xl w-full h-40 object-cover ring-2 ring-brand-yellow/40">
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- STATS -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <i class="fa-solid fa-book text-brand-yellow-dark text-xl mb-3"></i>
+          <p class="text-2xl font-bold text-slate-900" id="stat-my-courses">0</p>
+          <p class="text-slate-500 text-sm">Cursos publicados</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <i class="fa-solid fa-users text-brand-yellow-dark text-xl mb-3"></i>
+          <p class="text-2xl font-bold text-slate-900" id="stat-my-students">0</p>
+          <p class="text-slate-500 text-sm">Alunos acompanhados</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <i class="fa-solid fa-certificate text-brand-yellow-dark text-xl mb-3"></i>
+          <p class="text-2xl font-bold text-slate-900" id="stat-my-certificates">0</p>
+          <p class="text-slate-500 text-sm">Certificados emitidos</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <i class="fa-solid fa-clock text-brand-yellow-dark text-xl mb-3"></i>
+          <p class="text-2xl font-bold text-slate-900" id="stat-my-hours">0h</p>
+          <p class="text-slate-500 text-sm">Carga horária total</p>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2">
+          <h2 class="font-display text-xl font-bold text-slate-900 mb-5"><i class="fa-solid fa-book-open text-brand-yellow-dark mr-2"></i>Meus Cursos</h2>
+          <div id="my-courses-list" class="space-y-4"></div>
+        </div>
+
+        <aside class="space-y-6">
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-semibold text-slate-900 mb-4"><i class="fa-solid fa-chart-line text-brand-yellow-dark mr-2"></i>Acompanhar Alunos</h3>
+            <p class="text-slate-500 text-sm mb-4">Veja o progresso dos alunos matriculados nos seus cursos.</p>
+            <button class="btn-primary w-full py-2.5 rounded-lg text-sm font-semibold" onclick="alert('Em breve: relatório detalhado de alunos.')">Ver relatório</button>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-semibold text-slate-900 mb-4"><i class="fa-solid fa-certificate text-brand-yellow-dark mr-2"></i>Emitir Certificados</h3>
+            <p class="text-slate-500 text-sm mb-4">Gere certificados para alunos que concluíram seus cursos.</p>
+            <button class="btn-accent w-full py-2.5 rounded-lg text-sm font-semibold" onclick="alert('Em breve: emissão de certificados em lote.')">Emitir certificado</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/common.js"></script>
+  <script src="js/professor.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Curso — HACK ACADEMY</title>
+  <meta name="description" content="Detalhes do curso, professor, objetivos, competências, conteúdo programático e certificado.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="cursos">
+
+  <div id="header-placeholder"></div>
+
+  <main>
+    <div id="course-loading" class="py-24 text-center">
+      <i class="fa-solid fa-spinner fa-spin text-3xl text-brand-yellow-dark"></i>
+      <p class="text-slate-500 mt-4">Carregando curso...</p>
+    </div>
+
+    <div id="course-not-found" class="hidden py-24 text-center max-w-lg mx-auto px-4">
+      <i class="fa-solid fa-circle-exclamation text-4xl text-slate-300 mb-4"></i>
+      <h1 class="font-display text-2xl font-bold text-slate-800 mb-2">Curso não encontrado</h1>
+      <p class="text-slate-500 mb-6">O curso que você procura não existe ou foi removido.</p>
+      <a href="cursos.html" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold">Voltar ao Catálogo</a>
+    </div>
+
+    <article id="course-content" class="hidden">
+      <!-- HERO DO CURSO -->
+      <section class="gradient-hero text-white py-14">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav class="text-sm text-slate-300 mb-6" aria-label="Breadcrumb">
+            <a href="cursos.html" class="hover:text-white">Cursos</a> <span class="mx-1">/</span> <span id="breadcrumb-category"></span>
+          </nav>
+          <div class="grid lg:grid-cols-3 gap-10 items-start">
+            <div class="lg:col-span-2">
+              <span id="course-category-badge" class="badge badge-yellow mb-4"></span>
+              <h1 id="course-title" class="font-display text-3xl sm:text-4xl font-extrabold mb-4"></h1>
+              <p id="course-short-desc" class="text-slate-200 text-lg mb-6"></p>
+              <div class="flex flex-wrap items-center gap-5 text-sm text-slate-200">
+                <span><i class="fa-solid fa-user mr-1.5"></i><span id="course-instructor"></span></span>
+                <span><i class="fa-solid fa-clock mr-1.5"></i><span id="course-duration"></span>h</span>
+                <span><i class="fa-solid fa-signal mr-1.5"></i><span id="course-level"></span></span>
+                <span><i class="fa-solid fa-certificate mr-1.5"></i>Certificado incluso</span>
+              </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-xl">
+              <img id="course-image" src="" alt="" class="w-full h-56 object-cover">
+              <div class="bg-white p-6">
+                <button id="start-course-btn" class="btn-accent w-full py-3.5 rounded-lg font-semibold mb-3">Começar Curso</button>
+                <p id="start-course-hint" class="text-slate-500 text-xs text-center">Acesso imediato após o início · Certificado digital ao concluir</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BANNER: CERTIFICADO LIBERADO (aprovado no Desafio HACK) -->
+      <section id="course-approved-banner" class="hidden approved-banner text-white py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="w-11 h-11 rounded-full bg-brand-yellow text-black flex items-center justify-center text-lg"><i class="fa-solid fa-trophy"></i></span>
+            <div>
+              <p class="font-semibold">Você foi aprovado(a) neste curso! 🎉</p>
+              <p class="text-slate-300 text-sm">Certificado liberado — código <span id="course-approved-cert-code" class="font-mono text-brand-yellow"></span>.</p>
+            </div>
+          </div>
+          <a id="course-approved-cert-link" href="certificados.html" class="btn-accent px-5 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap">Ver Certificado <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+        </div>
+      </section>
+
+      <!-- CONTEÚDO -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-12">
+          <div class="lg:col-span-2 space-y-12">
+            <div>
+              <h2 class="font-display text-2xl font-bold text-slate-900 mb-4"><i class="fa-solid fa-book-open text-brand-yellow-dark mr-2"></i>Descrição</h2>
+              <div id="course-description" class="text-slate-600 leading-relaxed prose"></div>
+            </div>
+            <div>
+              <h2 class="font-display text-2xl font-bold text-slate-900 mb-4"><i class="fa-solid fa-bullseye text-brand-yellow-dark mr-2"></i>Objetivos</h2>
+              <div id="course-objectives" class="text-slate-600 leading-relaxed prose"></div>
+            </div>
+            <div>
+              <h2 class="font-display text-2xl font-bold text-slate-900 mb-4"><i class="fa-solid fa-list-check text-brand-yellow-dark mr-2"></i>Conteúdo Programático</h2>
+              <div id="course-syllabus" class="text-slate-600 leading-relaxed prose"></div>
+            </div>
+            <div class="bg-gradient-to-br from-black/5 to-brand-yellow/10 p-8 rounded-2xl border border-slate-100">
+              <h2 class="font-display text-2xl font-bold text-slate-900 mb-4"><i class="fa-solid fa-rocket text-brand-yellow-dark mr-2"></i>Aplicação Prática</h2>
+              <div id="course-practical" class="text-slate-600 leading-relaxed prose"></div>
+            </div>
+          </div>
+
+          <aside class="space-y-6">
+            <div class="bg-slate-50 p-6 rounded-2xl">
+              <h3 class="font-semibold text-slate-900 mb-4">Competências Desenvolvidas</h3>
+              <div id="course-skills" class="flex flex-wrap gap-2"></div>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-2xl">
+              <h3 class="font-semibold text-slate-900 mb-4">Informações do Curso</h3>
+              <ul class="space-y-3 text-sm text-slate-600">
+                <li class="flex justify-between"><span>Carga horária</span><strong id="info-duration" class="text-slate-900"></strong></li>
+                <li class="flex justify-between"><span>Nível</span><strong id="info-level" class="text-slate-900"></strong></li>
+                <li class="flex justify-between"><span>Categoria</span><strong id="info-category" class="text-slate-900"></strong></li>
+                <li class="flex justify-between"><span>Certificado</span><strong class="text-brand-yellow-dark">Sim</strong></li>
+              </ul>
+            </div>
+            <a id="instructor-link" href="professores.html" class="bg-slate-50 p-6 rounded-2xl flex items-center gap-4 hover:shadow-md transition-shadow">
+              <span class="w-14 h-14 rounded-full bg-black text-brand-yellow flex items-center justify-center font-bold text-lg" id="instructor-initial"></span>
+              <div>
+                <p class="text-xs text-slate-500">Professor(a)</p>
+                <p class="font-semibold text-slate-900" id="instructor-name-side"></p>
+              </div>
+            </a>
+
+            <div id="course-classroom-card" class="hidden bg-gradient-to-br from-black to-slate-800 p-6 rounded-2xl text-white">
+              <h3 class="font-semibold mb-2"><i class="fa-solid fa-chalkboard-user text-brand-yellow mr-2"></i>Sala de Aula</h3>
+              <p class="text-slate-300 text-sm mb-4">Assista aos slides, acesse o material complementar e faça o Desafio HACK — tudo em um só lugar. Acerte 7 ou mais de 10 e seu certificado é liberado automaticamente.</p>
+              <a id="course-classroom-btn" href="#" class="btn-accent w-full py-3 rounded-lg font-semibold text-center block">Entrar na Sala de Aula</a>
+            </div>
+
+            <div id="course-certificate-card" class="hidden bg-slate-50 p-6 rounded-2xl border-2 border-brand-yellow">
+              <h3 class="font-semibold text-slate-900 mb-2"><i class="fa-solid fa-certificate text-brand-yellow-dark mr-2"></i>Certificado Liberado</h3>
+              <p class="text-slate-500 text-sm mb-4">Parabéns! Você foi aprovado(a) e seu certificado já está disponível.</p>
+              <a id="course-certificate-link" href="certificados.html" class="btn-primary w-full py-3 rounded-lg font-semibold text-center block">Ver meu Certificado</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/common.js"></script>
+  <script src="js/curso-detalhe.js"></script>
+</body>
+</html>
