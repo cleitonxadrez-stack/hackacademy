@@ -1,0 +1,54 @@
+<header id="site-header" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 shrink-0" aria-label="HACK ACADEMY - Página inicial">
+        <span class="logo-icon w-11 h-11 rounded-xl">
+          <i class="fa-solid fa-bolt text-xl"></i>
+        </span>
+        <span class="font-display font-bold text-xl leading-tight text-slate-900">HACK ACADEMY</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Navegação principal">
+        <a href="index.html" data-nav="home" class="nav-link link-underline text-sm font-medium text-slate-700">Home</a>
+        <a href="sobre.html" data-nav="sobre" class="nav-link link-underline text-sm font-medium text-slate-700">Sobre</a>
+        <a href="cursos.html" data-nav="cursos" class="nav-link link-underline text-sm font-medium text-slate-700">Cursos</a>
+        <a href="professores.html" data-nav="professores" class="nav-link link-underline text-sm font-medium text-slate-700">Professores</a>
+        <a href="blog.html" data-nav="blog" class="nav-link link-underline text-sm font-medium text-slate-700">Blog</a>
+        <a href="certificados.html" data-nav="certificados" class="nav-link link-underline text-sm font-medium text-slate-700">Certificados</a>
+        <a href="guia-ia.html" data-nav="guia-ia" class="nav-link link-underline text-sm font-medium text-slate-700"><i class="fa-solid fa-robot text-brand-yellow-dark mr-1"></i>Guia de IA</a>
+        <a href="contato.html" data-nav="contato" class="nav-link link-underline text-sm font-medium text-slate-700">Contato</a>
+      </nav>
+
+      <!-- Auth area desktop -->
+      <div id="nav-auth-area" class="hidden lg:flex items-center gap-3">
+        <a href="cadastro.html" class="text-sm font-medium text-slate-700 hover:text-brand-yellow-dark">Cadastre-se</a>
+        <a href="login.html" class="btn-accent px-5 py-2.5 rounded-lg text-sm font-semibold">Entrar</a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <nav id="mobile-menu" class="lg:hidden max-h-0 border-t border-slate-100" aria-label="Navegação móvel">
+    <div class="px-4 py-4 space-y-1">
+      <a href="index.html" data-nav="home" class="nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Home</a>
+      <a href="sobre.html" data-nav="sobre" class="nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Sobre</a>
+      <a href="cursos.html" data-nav="cursos" class="nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Cursos</a>
+      <a href="professores.html" data-nav="professores" class="nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Professores</a>
+      <a href="blog.html" data-nav="blog" class="nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Blog</a>
+      <a href="certificados.html" data-nav="certificados" class="nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Certificados</a>
+      <a href="guia-ia.html" data-nav="guia-ia" class="nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50"><i class="fa-solid fa-robot text-brand-yellow-dark mr-1.5"></i>Guia de IA</a>
+      <a href="contato.html" data-nav="contato" class="nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Contato</a>
+      <div id="nav-auth-area-mobile" class="pt-3 border-t border-slate-100 mt-2 space-y-2">
+        <a href="cadastro.html" class="block text-center px-5 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-50">Cadastre-se</a>
+        <a href="login.html" class="btn-accent block text-center px-5 py-2.5 rounded-lg text-sm font-semibold">Entrar</a>
+      </div>
+    </div>
+  </nav>
+</header>
